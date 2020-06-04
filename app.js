@@ -18,7 +18,7 @@ app.post('/', async (req,res) =>{
 
         // signToken(email, password, res);
 
-        jwt.sign({ email, password }, secretKey, (err, token) => {
+        jwt.sign({ email, password }, secretKey, {expiresIn: "2 days"}, (err, token) => {
             if (err) {
                 console.log(`Oops! something went wrong trying to sign the payload, ${err}`);
             }
